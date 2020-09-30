@@ -1,12 +1,12 @@
-﻿while($true) {
+while($true) {
 
     Write-host 
     "Bitte starten Sie das Programm als Administrator!
     1.Rechte
     2.Prozesse
     3.IP Konfiguration
-    5.Defender Deatkiviern 
-    6.Defender aktivieren
+    4.Logins
+    5.Security Logs
     "
     $Eingabe=read-host -prompt "Bitte eine Zahl eingeben"
 
@@ -23,11 +23,14 @@
         }
     
         elseif ($Eingabe -eq '4') {
-        Set-MpPreference -DisableRealtimeMonitoring $true
+       Get-EventLog security | Where-Object {$_.TimeGenerated -gt '9/15/16'} | Where-Object {($_.InstanceID -eq 4634) -or ($_.InstanceID -eq 4624)} | Select-Object TimeGenerated,InstanceID,Message | Out-File -FilePath "c:\Logins.txt"
+        
         }
 
         elseif ($Eingabe -eq '5') {
-        Set-MpPreference -DisableRealtimeMonitoring $false
+        Get-EventLog Security -Newest 1000
+        write-host "Aktiviert"
+        pause
         }
 
         elseif ($Eingabe -eq '6') {
