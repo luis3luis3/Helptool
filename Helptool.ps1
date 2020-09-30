@@ -7,7 +7,7 @@ while($true) {
     3.IP Konfiguration
     4.Logins
     5.Security Logs
-    6. was ihr wollst
+    6. was ihr wollt
     "
     $Eingabe=read-host -prompt "Bitte eine Zahl eingeben"
 
