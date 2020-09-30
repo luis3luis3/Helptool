@@ -7,6 +7,7 @@ while($true) {
     3.IP Konfiguration
     4.Logins
     5.Security Logs
+    6. was ihr wollst
     "
     $Eingabe=read-host -prompt "Bitte eine Zahl eingeben"
 
@@ -29,8 +30,6 @@ while($true) {
 
         elseif ($Eingabe -eq '5') {
         Get-EventLog Security -Newest 1000
-        write-host "Aktiviert"
-        pause
         }
 
         elseif ($Eingabe -eq '6') {
@@ -38,6 +37,7 @@ while($true) {
         }
     
     else {
-        write-host 'Die Eingabe ist keine Zahl zwischen 1 und 4' -foregroundcolor red
+        write-host 'Die Eingabe ist keine Zahl zwischen 1 und 6' -foregroundcolor red
     }
+ pause
 }
